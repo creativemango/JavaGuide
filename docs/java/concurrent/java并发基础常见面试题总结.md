@@ -276,7 +276,7 @@ Process finished with exit code 0
 
 **sleep 方法是 Thread 类的方法，不会释放锁，释放CPU。**  但是他的监控状态依然保持着，当指定的时间到了又会自动恢复运行状态，可中断，sleep 给其他线程运行机会时不考虑线程的优先级，因此会给低优先级的线程以运行的机会。
 
-**wait 方法是 Object 类的方法，释放对象锁，释放CPU。 **  只有当其他线程调用 notify 才能唤醒此线程。wait 使用时必须先获取对象锁，即必须在 synchronized 修饰的代码块中使用，那么相应的 notify 方法同样必须在 synchronized 修饰的代码块中使用。
+**wait 方法是 Object 类的方法，释放对象锁，释放CPU。**  只有当其他线程调用 notify 才能唤醒此线程。wait 使用时必须先获取对象锁，即必须在 synchronized 修饰的代码块中使用，那么相应的 notify 方法同样必须在 synchronized 修饰的代码块中使用。
 
 **yield方法是 Thread 类的方法，不会释放资源锁，释放CPU。**  和 sleep 不同的是 yield方法并不会让线程进入阻塞状态，而是让线程重回就绪状态，它只需要等待重新获取CPU执行时间，所以执行yield()的线程有可能在进入到可执行状态后马上又被执行。还有一点和 sleep 不同的是 yield 方法只能使同优先级或更高优先级的线程有执行的机会。
 
